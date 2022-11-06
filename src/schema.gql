@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Room {
+  roomId: String!
+
+  """Name of the Guest"""
+  guestName: String!
+
+  """Time of the last change"""
+  lastChanged: DateTime!
+  state: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  rooms: [Room!]
+  room(roomId: String!): Room
+}
+
+type Mutation {
+  createRoom(createRoomInput: CreateRoomInput!): Room!
+  updateRoom(updateRoomInput: UpdateRoomInput!): Room
+  removeRoom(roomId: String!): Room
+}
+
+input CreateRoomInput {
+  roomId: String!
+
+  """Name of the Guest"""
+  guestName: String!
+  state: String
+}
+
+input UpdateRoomInput {
+  roomId: String!
+
+  """Name of the Guest"""
+  guestName: String
+  state: String
+}
